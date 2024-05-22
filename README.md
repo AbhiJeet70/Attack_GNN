@@ -1,6 +1,6 @@
 # GNN Attack Simulation
 
-This repository contains the code for simulating attacks on Graph Convolutional Networks (GCNs) using the Cora dataset. It demonstrates how perturbations affect the accuracy of GCNs through a federated learning approach. The project is structured into modular Python files, each dedicated to a different aspect of the simulation.
+This repository contains the code for simulating attacks on Graph Convolutional Networks (GCNs) using the Cora dataset. It demonstrates how perturbations affect the accuracy of GCNs through meta attack approach.
 
 ## Repository Structure
 ```
