@@ -17,8 +17,8 @@ from training.training import train_model, evaluate_model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Main experiment function
-def run_experiment(model_type = "GCN", data_name = 'cora', ptb_rate=None):
-    pyg_data = load_data(data_name, ptb_rate=ptb_rate)
+def run_experiment(model_type = "GCN", data_name = 'cora', attack_method = 'meta', ptb_rate=None):
+    pyg_data = load_data(data_name, attack_method, ptb_rate=ptb_rate)
     if ptb_rate:
         pyg_data.update_edge_index(pyg_data.adj)
     data = pyg_data[0].to(device)
