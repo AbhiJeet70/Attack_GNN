@@ -17,8 +17,8 @@ from training.training import train_model, evaluate_model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Main experiment function
-def run_experiment(model_type = "GCN", ptb_rate=None):
-    pyg_data = load_data(ptb_rate=ptb_rate)
+def run_experiment(model_type = "GCN", data_name = 'cora', ptb_rate=None):
+    pyg_data = load_data(data_name, ptb_rate=ptb_rate)
     if ptb_rate:
         pyg_data.update_edge_index(pyg_data.adj)
     data = pyg_data[0].to(device)
@@ -30,6 +30,7 @@ def run_experiment(model_type = "GCN", ptb_rate=None):
 
     lr=0.01
     weight_decay=0
+    epochs = 500
 
     if model_type == "GCN":
         model = GCN(input_dim, hidden_dim, output_dim).to(device)
@@ -48,7 +49,7 @@ def run_experiment(model_type = "GCN", ptb_rate=None):
     
     average = []
     for _ in range(50):
-        train_model(data, model, optimizer)
+        train_model(data, model, optimizer, epochs)
         acc = evaluate_model(data, model)
         average.append(acc)
     

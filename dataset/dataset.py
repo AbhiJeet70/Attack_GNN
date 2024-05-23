@@ -8,7 +8,7 @@ from deeprobust.graph.data import Dataset, PrePtbDataset, Dpr2Pyg
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load dataset
-def load_data(name='cora', setting=None, ptb_rate=None):
+def load_data(name, setting=None, ptb_rate=None):
     if ptb_rate:
         perturbed_data = PrePtbDataset(root='/tmp/', name=name, attack_method='meta', ptb_rate=ptb_rate)
         return perturbed_data.adj
