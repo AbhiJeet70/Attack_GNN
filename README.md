@@ -1,6 +1,7 @@
 # Poisoning Graph Convolutional Network
 
 This repository contains the code for simulating attacks on Graph Convolutional Networks (GCNs) using the Cora dataset. It demonstrates how perturbations affect the accuracy of GCNs through meta attack approach.
+Reference paper: [Adversarial Attacks on Graph Neural Networks via Meta Learning](https://openreview.net/forum?id=Bylnx209YX&noteId=r1xNHe2tAQ)
 
 ## Repository Structure
 ```
