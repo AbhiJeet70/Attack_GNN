@@ -1,13 +1,21 @@
 
+import torch
+
 import torch.nn.functional as F
 from torch_geometric.nn import GCNConv
 
 # Define the GCN Model
-class Net(torch.nn.Module):
+class GCN(torch.nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
-        super(Net, self).__init__()
+        super(GCN, self).__init__()
         self.conv1 = GCNConv(input_dim, hidden_dim)
         self.conv2 = GCNConv(hidden_dim, output_dim)
+        self.reset_parameters()
+        
+        
+    def reset_parameters(self):
+        self.conv1.reset_parameters()
+        self.conv2.reset_parameters()
 
     def forward(self, data):
         x, edge_index = data.x, data.edge_index

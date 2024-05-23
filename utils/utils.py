@@ -1,7 +1,7 @@
 
 import statistics
 from dataset.dataset import load_data
-from GCN.GCN import Net
+from models.GCN import GCN
 from training.training import train_model, evaluate_model
 import torch.optim as optim
 import torch
@@ -15,7 +15,7 @@ def run_experiment(ptb_rate=None):
     if ptb_rate:
         pyg_data.update_edge_index(pyg_data.adj)
     data = pyg_data[0].to(device)
-    model = Net(pyg_data.num_node_features, 512, pyg_data.num_classes).to(device)
+    model = GCN(pyg_data.num_node_features, 512, pyg_data.num_classes).to(device)
     optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay=0)
     
     average = []
