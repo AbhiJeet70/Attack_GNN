@@ -11,6 +11,10 @@ Attack_GNN/
 │ └── dataset.py
 ├── GCN
 │ └── GCN.py
+| └── GAT.py
+| └── GIN.py
+| └── GNN.py
+| └── SGC.py
 ├── training
 │ └── training.py
 ├── utils
