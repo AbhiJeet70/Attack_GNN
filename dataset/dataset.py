@@ -9,9 +9,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load dataset
 def load_data(name, attack_method, setting=None, ptb_rate=None):
+    data = Dataset(root='/tmp/', name=name)
+    pyg_data = Dpr2Pyg(data)
     if ptb_rate:
         perturbed_data = PrePtbDataset(root='/tmp/', name=name, attack_method=attack_method, ptb_rate=ptb_rate)
-        return perturbed_data.adj
-    data = Dataset(root='/tmp/', name=name, setting=setting)
-    pyg_data = Dpr2Pyg(data)
+        pyg_data.update_edge_index(perturbed_data.adj)
+
     return pyg_data
