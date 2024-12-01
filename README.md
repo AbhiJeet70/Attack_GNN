@@ -81,3 +81,16 @@ Attack_GNN/
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+## Reference
+@inproceedings{Pan2021Adversarial,
+  author    = {Yingwei Pan and Tingting Liang and Zequn Jie and Jingjing Chen and Lin Ma and Zhenzhen Hu and Wei Liu},
+  title     = {Adversarial Attacks on Graph Neural Networks via Meta Learning},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2021},
+  pages     = {6559--6568},
+  doi       = {10.1109/CVPR46437.2021.00650},
+  url       = {https://doi.org/10.1109/CVPR46437.2021.00650}
+}
+
+
